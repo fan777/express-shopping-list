@@ -43,6 +43,7 @@ router.patch('/:name', (req, res) => {
     throw new ExpressError('Name or price is missing', 400);
   if (isNaN(price))
     throw new ExpressError(`${price} is not a number`, 400);
+  item.name = name;
   item.price = price;
   res.status(201).json({ updated: item })
 })
